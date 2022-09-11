@@ -1,7 +1,8 @@
 <template>
   <div class="m-container">
-    <Header></Header>
-    <editor></editor>
+    <div id="header">
+      <Header></Header>
+    </div>
     <div class="block">
       <el-timeline>
         <el-timeline-item v-bind:timestamp="blog.created" placement="top" v-for="blog in blogs">
@@ -25,10 +26,10 @@
 </template>
 <script>
 import Header from "@/components/Header";
-import editor from "mavon-editor";
+
 export default {
   name: "Blogs",
-  components: {Header, editor},
+  components: {Header},
   data() {
     return {
       blogs: {},
@@ -40,7 +41,7 @@ export default {
   methods: {
     page(currentPage) {
       const _this = this
-      this.$axios.get('http://localhost:8081/blogs?currentPage=' + currentPage).then((res) => {
+      _this.$axios.get('http://localhost:8081/blogs?currentPage=' + currentPage).then((res) => {
         console.log(res.data.data.records)
         _this.blogs = res.data.data.records
         _this.currentPage = res.data.data.current

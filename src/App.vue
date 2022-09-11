@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <mavon-editor/>
     <router-view></router-view>
   </div>
 </template>
@@ -8,14 +7,12 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Header from "@/components/Header";
-import mavonEditor from 'mavon-editor';
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Header,
-    mavonEditor
+    Header
   }
 }
 </script>

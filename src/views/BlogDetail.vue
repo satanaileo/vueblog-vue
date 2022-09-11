@@ -38,15 +38,15 @@ export default {
     const blogId = this.$route.params.blogId
     console.log(blogId)
     const _this = this
-    this.$axios.get('/blog/' + blogId).then(res => {
+    _this.$axios.get('/blog/' + blogId).then(res => {
       const blog = res.data.data
       _this.blog.id = blog.id
       _this.blog.title = blog.title
 
-      var MardownIt = require("markdown-it")
-      var md = new MardownIt()
+      const MardownIt = require("markdown-it")
+      const md = new MardownIt()
 
-      var result = md.render(blog.content)
+      const result = md.render(blog.content)
       _this.blog.content = result
       _this.ownBlog = (blog.userId === _this.$store.getters.getUser.id)
 

@@ -3,7 +3,7 @@
             <el-container>
                  <el-header>
                       <router-link to="/blogs">
-                      <img src="http://www.techreviewer.co.uk/wp-content/uploads/2014/02/Dota2.jpg"
+                      <img src="/icon.jpg"
                                                  style="height: 60%; margin-top: 10px;">
                       </router-link>
                  </el-header>
@@ -26,8 +26,6 @@
        </div>
 </template>
 <script>
-import axios from "axios";
-
 export default {
   name: 'Login',
   data() {
@@ -57,10 +55,10 @@ export default {
   methods: {
     submitForm(formName) {
       const _this = this
-      this.$refs[formName].validate((valid) => {
+      _this.$refs[formName].validate((valid) => {
         if (valid) {
           // 提交逻辑
-          axios.post('/login', _this.ruleForm).then((res)=>{
+          _this.$axios.post('/login', _this.ruleForm).then((res)=>{
             const token = res.headers['authorization']
             _this.$store.commit('SET_TOKEN', token)
             _this.$store.commit('SET_USERINFO', res.data.data)

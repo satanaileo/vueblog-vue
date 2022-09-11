@@ -25,7 +25,7 @@ const routes = [
     component: () => import('../views/Blogs.vue')
   },
   {
-    path: '/blot/add',
+    path: '/blog/add',
     name: 'BlogAdd',
     meta: {
       requireAuth: true
@@ -33,12 +33,12 @@ const routes = [
     component: BlogEdit
   },
   {
-    path: 'blog/:blogId',
+    path: '/blog/:blogId',
     name: 'BlogDetail',
     component: BlogDetail
   },
   {
-    path: 'blog/:blogId/edit',
+    path: '/blog/:blogId/edit',
     name: 'BlogEdit',
     meta: {
       requireAuth: true

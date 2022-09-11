@@ -2,7 +2,7 @@
   <div class="m-content">
     <h3>欢迎来到satanaileo的博客</h3>
     <div class="block">
-      <el-avatar :size="50" :src="user.avatar"></el-avatar>
+      <el-avatar :size="50" :src="`/icon.jpg`"></el-avatar>
       <div>{{ user.username }}</div>
     </div>
     <div class="maction">
@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "Header",
   data() {
@@ -29,7 +30,7 @@ export default {
       hasLogin: false,
       user: {
         username: '请先登录',
-        avatar: "http://www.techreviewer.co.uk/wp-content/uploads/2014/02/Dota2.jpg"
+        avatar: "/icon.jpg"
       },
       blogs: {},
       currentPage: 1,
@@ -39,7 +40,7 @@ export default {
   methods: {
     logout() {
       const _this = this
-      this.$axios.get('http://localhost:8081/logout', {
+      _this.$axios.get('/logout', {
         headers: {
           "Authorization": localStorage.getItem("token")
         }

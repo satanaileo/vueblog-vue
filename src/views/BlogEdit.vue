@@ -22,11 +22,10 @@
 </template>
 <script>
 import Header from "@/components/Header";
-import editor from "mavon-editor";
 
 export default {
   name: "BlogEdit",
-  components: {Header, editor},
+  components: {Header},
   data() {
     return {
       editForm: {
@@ -64,7 +63,7 @@ export default {
       const _this = this
       this.$refs.editForm.validate((valid) => {
         if (valid) {
-          this.$axios.post('/blog/edit', this.editForm, {
+          _this.$axios.post('/blog/edit', this.editForm, {
             headers: {
               "Authorization": localStorage.getItem("token")
             }
