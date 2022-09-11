@@ -10,10 +10,10 @@
           <el-input type="textarea" v-model="editForm.description"></el-input>
         </el-form-item>
         <el-form-item label="内容" prop="content">
-          <mavon-editor/>
+          <mavon-editor type="textarea" v-model="editForm.content"/>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm()">立即创建</el-button>
+          <el-button type="primary" @click="submitForm()">保存</el-button>
           <el-button>取消</el-button>
         </el-form-item>
       </el-form>
@@ -68,7 +68,7 @@ export default {
               "Authorization": localStorage.getItem("token")
             }
           }).then((res) => {
-            _this.$alert('操作成功', '提示', {
+            _this.$alert('保存成功', '提示', {
               confirmButtonText: '确定',
               callback: action => {
                 _this.$router.push("/blogs")
