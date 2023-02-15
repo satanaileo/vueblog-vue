@@ -10,7 +10,7 @@
           <el-input type="textarea" v-model="editForm.description"></el-input>
         </el-form-item>
         <el-form-item label="内容" prop="content">
-          <mavon-editor type="textarea" v-model="editForm.content"/>
+          <mavon-editor type="textarea" :box-shadow="false" v-model="editForm.content"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm()">保存</el-button>

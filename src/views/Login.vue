@@ -38,8 +38,8 @@ export default {
     };
     return {
       ruleForm: {
-        password: '123456',
-        username: 'satanaileo'
+        password: '',
+        username: ''
       },
       rules: {
         password: [
